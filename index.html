@@ -24,7 +24,7 @@
     </script>
   </head>
   <body>
-    <nav class="w-full bg-transparent absolute z-50">
+    <nav class="w-full bg-transparent fixed z-50 transition-all duration-500">
       <div class="container px-8 py-4 mx-auto flex justify-between">
         <div class="logo">
           <img
@@ -35,11 +35,7 @@
         </div>
         <ul class="hidden md:flex justify-center items-center gap-5">
           <a href=""
-            ><li
-              class="text-base font-normal text-white"
-            >
-              Beranda
-            </li></a
+            ><li class="text-base font-normal text-white">Beranda</li></a
           >
           <a href="about.html"
             ><li
@@ -529,6 +525,20 @@
     </footer>
 
     <script>
+      const navbar = document.querySelector("nav");
+      function scrolledNavbar() {
+        if (this.scrollY > 0) {
+          navbar.classList.add("bg-[#101524]");
+          navbar.classList.remove("bg-transparent");
+        } else {
+          navbar.classList.add("bg-transparent");
+          navbar.classList.remove("bg-[#101524]");
+        }
+      }
+
+      this.addEventListener("scroll", scrolledNavbar);
+      scrolledNavbar();
+
       const sidebar = document.querySelector("aside");
 
       function openNavbar() {
